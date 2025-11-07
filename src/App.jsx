@@ -313,7 +313,6 @@ function App() {
   
   const topLosers = useMemo(() => 
     [...activeMarketData]
-      .filter(coin => (coin.price_change_percentage_24h ?? 0) < 0)
       .sort((a, b) => (a.price_change_percentage_24h ?? 0) - (b.price_change_percentage_24h ?? 0))
       .slice(0, 5), 
   [activeMarketData]);
