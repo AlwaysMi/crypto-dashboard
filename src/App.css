@@ -1,0 +1,347 @@
+/* --- Variabel Warna Global --- */
+:root {
+  --background-color: #1a1e20;
+  --card-background: #23272d;
+  --text-color: #f0f0f0;
+  --subtle-text-color: #8c929a;
+  --border-color: #383c41;
+  --primary-green: #10B981;
+  --primary-red: #ef4444;
+  --hover-bg: #2e343b;
+  --tab-active-border: #10B981;
+}
+
+/* --- Reset & Base Styling --- */
+body, html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+.app-wrapper {
+  width: 100%;
+  overflow-x: clip; 
+}
+
+/* --- HEADER --- */
+.global-header {
+  width: 100%;
+  background-color: var(--card-background);
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Style untuk logo kustom "I 'A' M Crypto" */
+.global-header .logo-container {
+  display: flex;
+  align-items: flex-end; /* Tetap: Sejajarkan di bagian bawah */
+  gap: 0px; /* Tetap: Tidak ada jarak antar elemen flex */
+}
+
+.global-header .logo-text-iam {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 40px; /* Ukuran font untuk 'I' dan 'M' */
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 0.9; /* Merapatkan tinggi baris teks */
+
+  /* PENYESUAIAN ALIGNMENT: 
+    Ubah angka '7px' ini (bisa 5px, 8px, 10px) 
+    sampai 'I' dan 'M' terlihat pas di dasar logo 'A'.
+  */
+  padding-bottom: 7px; 
+}
+
+.global-header .logo-text-image {
+  height: 55px; /* Ukuran logo 50px sesuai permintaan */
+  width: auto;
+  margin-left: -5px;
+  margin-right: -5px;
+  margin-bottom: -5px;
+}
+
+.global-header .logo-text-crypto {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 18px; /* Ukuran font Crypto */
+  font-weight: 500;
+  color: var(--subtle-text-color);
+  line-height: 1;
+  margin-left: 6px;
+  padding-bottom: 12px; 
+}
+
+.global-header .menu-icon {
+  font-size: 24px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* --- MARQUEE / TICKER --- */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 8px 0;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: flex;
+  animation: scroll 40s linear infinite;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  font-size: 0.9em;
+}
+.marquee-item .category { color: var(--subtle-text-color); margin-right: 10px; }
+.marquee-item .name { color: var(--text-color); font-weight: 500; margin-left: 5px; }
+.marquee-item .price { color: var(--text-color); margin-left: 10px; }
+.marquee-item .change { margin-left: 10px; }
+.marquee-item .marquee-icon { width: 16px; height: 16px; margin-left: 10px; }
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); } /* Animasi 200% (duplikat) */
+}*/
+
+/* --- KONTEN UTAMA --- */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.2em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+}
+
+/* --- TAB MENU --- */
+.tab-menu-container {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+.tab-menu-container.scrollable {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.tab-item {
+  background: none;
+  border: none;
+  color: var(--subtle-text-color);
+  padding: 10px 15px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.tab-item:hover {
+  color: var(--text-color);
+}
+
+.tab-item.active {
+  color: var(--text-color);
+  border-bottom: 2px solid var(--tab-active-border);
+}
+
+/* --- OVERVIEW BOXES (Swipeable) --- */
+.overview-container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0 20px 0;
+  white-space: nowrap;
+}
+
+.overview-card {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  width: 280px;
+  min-width: 280px;
+  vertical-align: top;
+}
+
+.overview-card h3 {
+  margin-top: 0;
+  font-size: 1.1em;
+}
+
+.overview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.overview-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+}
+
+.overview-list-item img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.overview-list-item .overview-name {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.overview-list-item .overview-name .price {
+  color: var(--subtle-text-color);
+  font-size: 0.9em;
+}
+
+/* --- FILTER & SORT --- */
+.filter-sort-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.filter-sort-container select {
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 0.9em;
+}
+
+/* --- CHART & TABLE --- */
+.chart-container, .table-container {
+  background-color: var(--card-background);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  border: 1px solid var(--border-color);
+}
+
+.coin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.coin-table th, .coin-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.coin-table th {
+  font-weight: 500;
+  color: var(--subtle-text-color);
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+.coin-table tbody tr:last-child td { border-bottom: none; }
+.coin-table tbody tr.clickable-row:hover { background-color: var(--hover-bg); cursor: pointer; }
+.coin-name { display: flex; align-items: center; gap: 10px; }
+.coin-name img { border-radius: 50%; }
+.coin-id-symbol { display: flex; flex-direction: column; }
+.coin-id-symbol .symbol { color: var(--subtle-text-color); font-size: 0.8em; }
+
+/* --- Warna Positif / Negatif --- */
+.positive { color: var(--primary-green); }
+.negative { color: var(--primary-red); }
+
+/* --- Tombol Lihat Semua --- */
+.see-all-container {
+  text-align: center;
+  padding: 20px 0 10px 0;
+}
+
+.see-all-container button {
+  background-color: var(--card-background);
+  color: var(--subtle-text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9em;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.see-all-container button:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-color);
+}
+
+/* --- Loading Screen --- */
+.loading-fullscreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+}
+
+.loading-fullscreen p {
+  font-size: 1.2em;
+  color: var(--subtle-text-color);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .dashboard-container { padding: 10px; }
+  h1 { font-size: 1.8em; }
+  
+  .coin-table thead { display: none; }
+  .coin-table tbody, .coin-table tr, .coin-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .coin-table tr {
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .coin-table td {
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+  .coin-table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+    color: var(--subtle-text-color);
+  }
+  .coin-table td:last-child { border-bottom: none;
+}
