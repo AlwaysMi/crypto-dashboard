@@ -237,6 +237,8 @@ function App() {
           index === self.findIndex(([ts]) => ts === timestamp)
       );
       
+      const lineTension = chartDays === '3' ? 0 : 0.4;
+
       const processedData = {
         datasets: [{
           label: `Harga ${debouncedSelectedCoin.name} (IDR)`,
@@ -245,7 +247,7 @@ function App() {
           backgroundColor: 'rgba(16, 185, 129, 0.1)',
           fill: true,
           pointRadius: 0,
-          tension: 0.4,
+          tension: lineTension,
         }],
       };
       
