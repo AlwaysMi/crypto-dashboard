@@ -1,31 +1,34 @@
-// src/components/Marquee.jsx
-
 import React from 'react';
 
-// Komponen ini akan menerima 'items' (data) sebagai prop
-function Marquee({ items }) {
+/**
+ * Komponen Marquee untuk animasi scroll horizontal yang mulus.
+ * Menduplikasi 'items' untuk menciptakan efek looping tanpa batas.
+ */
+const Marquee = ({ items, renderItem }) => {
   if (!items || items.length === 0) {
-    return null; // Jangan tampilkan apa-apa jika tidak ada data
+    return null;
   }
 
+  // Fungsi untuk merender daftar item.
+  // 'isClone' digunakan untuk membuat 'key' yang unik bagi daftar duplikat.
+  const renderList = (isClone = false) =>
+    items.map((item, index) => {
+      // Key yang unik sangat penting untuk mencegah bug re-render React
+      const uniqueKey = `${item.category}-${item.name}-${index}${isClone ? '-clone' : ''}`;
+      return renderItem(item, uniqueKey);
+    });
+
   return (
-    <div className="marquee-container">
+    <div className="marquee-wrapper" aria-hidden="true">
       <div className="marquee-content">
-        {/* Kita duplikat datanya agar terlihat 'infinite' */}
-        {[...items, ...items].map((item, index) => (
-          <div className="marquee-item" key={index}>
-            <span className="category">| {item.category} |</span>
-            <img src={item.icon} alt={item.name} className="marquee-icon" />
-            <span className="name">{item.name}</span>
-            <span className={`change ${item.change > 0 ? 'positive' : 'negative'}`}>
-              {item.change > 0 ? '+' : ''}{item.change.toFixed(2)}%
-            </span>
-            <span className="price">{item.value}</span>
-          </div>
-        ))}
+        {/* Render daftar asli */}
+        {renderList(false)}
+        
+        {/* Render daftar klon (duplikat) untuk efek looping */}
+        {renderList(true)}
       </div>
     </div>
   );
-}
+};
 
 export default Marquee;

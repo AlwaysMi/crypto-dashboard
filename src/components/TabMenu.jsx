@@ -1,11 +1,9 @@
-// src/components/TabMenu.jsx
-
 import React from 'react';
 
-// Komponen ini akan menerima:
-// - tabs: Array berisi nama tab (string)
-// - activeTab: Nama tab yang sedang aktif
-// - onTabClick: Fungsi yang dipanggil saat tab diklik
+/**
+ * Komponen UI yang dapat digunakan kembali untuk merender menu tab.
+ * Menerima daftar tab dan menangani klik.
+ */
 function TabMenu({ tabs, activeTab, onTabClick, scrollable = false }) {
   return (
     <div className={`tab-menu-container ${scrollable ? 'scrollable' : ''}`}>
