@@ -7,6 +7,7 @@ import TabMenu from './components/TabMenu';
 import FuturesContractTable from './components/FuturesContractTable';
 import logoA from './assets/A.png'; 
 import './App.css';
+import coingeckoLogo from './assets/coingecko_logo.svg';
 
 // === Konstanta & Konfigurasi ===
 
@@ -666,9 +667,9 @@ function App() {
             className="coingecko-link"
           >
             <img 
-              src="/src/assets/coingecko.png" 
-              alt="CoinGecko Logo" 
-              className="coingecko-logo"
+                src={coingeckoLogo}
+                alt="CoinGecko Logo" 
+                className="coingecko-logo"
             />
             <span className="sr-only">CoinGecko</span>
           </a>
