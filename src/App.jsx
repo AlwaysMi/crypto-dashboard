@@ -7,7 +7,7 @@ import TabMenu from './components/TabMenu';
 import FuturesContractTable from './components/FuturesContractTable';
 import logoA from './assets/A.png'; 
 import './App.css';
-import coingeckoLogo from './assets/coingecko_logo.svg';
+import coingeckoLogo from './assets/coingecko.png';
 
 // === Konstanta & Konfigurasi ===
 
